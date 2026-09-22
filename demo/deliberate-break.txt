@@ -1,0 +1,2 @@
+# Deliberate policy break for dogfood — do not merge as-is
+fake_aws_key=AKIA1234567890ABCDEF
