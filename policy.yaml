@@ -1,0 +1,25 @@
+version: 1
+rules:
+  - id: no-aws-keys
+    type: secrets_pattern
+    severity: hard
+    pattern: "AKIA[0-9A-Z]{16}"
+    message: "Possible AWS access key id"
+  - id: no-lodash
+    type: forbidden_imports
+    severity: hard
+    packages:
+      - lodash
+    message: "lodash is forbidden; use native APIs"
+  - id: src-needs-tests
+    type: required_tests_for_path
+    severity: hard
+    path_glob: "src/**/*.ts"
+    test_glob: "**/*.test.ts"
+    message: "src TypeScript files need a matching *.test.ts somewhere in the PR"
+  - id: app-not-infra
+    type: import_boundary
+    severity: soft
+    from_glob: "src/app/**"
+    forbid_import_glob: "src/infra/**"
+    message: "app code should not import infra internals"
