@@ -1,0 +1,2 @@
+# Deliberate policy break cleaned — safe for dogfood pass
+fake_aws_key=REDACTED_NOT_A_REAL_KEY
